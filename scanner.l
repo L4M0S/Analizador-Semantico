@@ -1,9 +1,10 @@
 %{
-  #include"parser.cpp"
+  //#include"parser.cpp"
+  #include"parser.hpp"
   //#include"abstree.h"
   #include<cstdio>
   
-  extern YYSTYPE yyval;
+  extern YYSTYPE yylval;
   int contador=1;
 %}
 
@@ -12,22 +13,22 @@ id [a-zA-Z]([a-zA-Z]|[0-9])*
 espacio [ \t]
 nlinea \n
 op [-+*/]
-cord []]
-cori [[]
+cord "]"
+cori "["
 delim [()]
 punt [.,;:]
 
 %%
-{id}  { if(yytext=="throw") return THROW;
-        /*yyval.string = yytext;*/ return ID; /*printf("id: %s %i\n",yytext,yyleng);*/ }
-{numero} { /*yyval.val = atof(yytext);*/ return NUM;}
-{espacio} { /*ignorar*/ }
-{nlinea} { contador++; }
-{op} { return *yytext; }
-{delim} { return *yytext; }
-{punt} { return *yytext; }
-{cord} { /*printf("cord ");*/ return *yytext; }
-{cori} { /*printf("cori %s ",yytext);*/ return *yytext; }
+throw return THROW;
+{id}  {yylval.str=yytext; return ID;}
+{numero} {yylval.value = atof(yytext); return NUM;}
+{espacio} /*ignorar*/;
+{nlinea} contador++;
+{op} return *yytext;
+{delim} return *yytext;
+{punt} return *yytext;
+{cord} return *yytext;
+{cori} return *yytext;
 <<EOF>> {printf("-EOF-"); return 0;}
 
 %%

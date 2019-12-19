@@ -52,16 +52,17 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 15 "parser.y"
+#line 25 "parser.y"
 
-	   float val;
-	   char *string;
-	   node *p;
+	   float value;	//valor para expresiones numericas
+	   matrix *mptr;	//puntero a matriz
+	   node *mnode;	//puntero a nodo
+	   char* str;	//cadena para almacenar id
 
 
 
 /* Line 1676 of yacc.c  */
-#line 65 "parser.hpp"
+#line 66 "parser.hpp"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

@@ -28,8 +28,8 @@ Folders=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
-CompilerSettings=1000000000000000000000000
-UnitCount=3
+CompilerSettings=1000000000000000001000000
+UnitCount=6
 
 [VersionInfo]
 Major=1
@@ -101,7 +101,17 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit5]
-FileName=scanner.h
+FileName=parser.hpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit4]
+FileName=parser.cpp
 CompileCpp=1
 Folder=
 Compile=1

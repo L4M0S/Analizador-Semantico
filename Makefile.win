@@ -1,17 +1,17 @@
 # Project: Semantico
 # Makefile created by Dev-C++ 5.11
 
-CPP      = g++.exe
-CC       = gcc.exe
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = main.o abstree.o
-LINKOBJ  = main.o abstree.o
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib"
+OBJ      = main.o abstree.o parser.o
+LINKOBJ  = main.o abstree.o parser.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -std=c++11 -g3
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = Semantico.exe
-CXXFLAGS = $(CXXINCS) -ansi -std=c++11
-CFLAGS   = $(INCS) -ansi -std=c++11
+CXXFLAGS = $(CXXINCS) -ansi -g3 -std=c++11
+CFLAGS   = $(INCS) -ansi -g3 -std=c++11
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -29,3 +29,6 @@ main.o: main.cpp
 
 abstree.o: abstree.cpp
 	$(CPP) -c abstree.cpp -o abstree.o $(CXXFLAGS)
+
+parser.o: parser.cpp
+	$(CPP) -c parser.cpp -o parser.o $(CXXFLAGS)
